@@ -1,0 +1,199 @@
+{
+  "chip": {
+    "name": "BCM85667",
+    "vendor_id": "0x14E4",
+    "device_id": "0x8567"
+  },
+  "register_blocks": {
+    "RETIMER_CFG": "0x0000",
+    "XAGENT": "0x4000",
+    "PPA": "0x8000",
+    "PPB": "0xC000"
+  },
+  "registers": {
+    "GLOBAL_PARAM0": {
+      "name": "RETIMER_CFG_GLOBAL_PARAM0",
+      "address": "0x0000",
+      "size": 4,
+      "description": "Global Parameter Register 0",
+      "fields": [
+        {"name": "PROFILE", "bit_offset": 0, "bit_width": 3, "description": "Profile revision"},
+        {"name": "BIFURCATION", "bit_offset": 7, "bit_width": 6, "description": "Lane bifurcation mode"},
+        {"name": "EEPROM_DATA_VAL", "bit_offset": 13, "bit_width": 2, "description": "EEPROM data valid indicator"},
+        {"name": "AUTOINC", "bit_offset": 15, "bit_width": 1, "description": "SMBus autoincrement support"},
+        {"name": "CLK_MODE", "bit_offset": 16, "bit_width": 3, "description": "Clocking mode"},
+        {"name": "ENH_LINK_BEHAV", "bit_offset": 18, "bit_width": 3, "description": "Enhanced link behavior"},
+        {"name": "EEPROM_TIMEOUT", "bit_offset": 21, "bit_width": 3, "description": "EEPROM timeout"},
+        {"name": "MAX_DATA_RATE", "bit_offset": 24, "bit_width": 3, "description": "Maximum data rate"},
+        {"name": "SRIS_LINK_PAYLOAD_SIZE", "bit_offset": 28, "bit_width": 3, "description": "SRIS link payload size"},
+        {"name": "PORT_ORIEN_METHOD", "bit_offset": 31, "bit_width": 1, "description": "Port orientation method"}
+      ]
+    },
+    "GLOBAL_PARAM1": {
+      "name": "RETIMER_CFG_GLOBAL_PARAM1",
+      "address": "0x0004",
+      "size": 4,
+      "description": "Global Parameter Register 1 - Device ID",
+      "fields": [
+        {"name": "REVISION_ID", "bit_offset": 0, "bit_width": 8, "description": "Device revision ID"},
+        {"name": "DEVICE_ID", "bit_offset": 8, "bit_width": 8, "description": "Device ID"},
+        {"name": "VENDOR_ID", "bit_offset": 16, "bit_width": 16, "description": "Vendor ID (Broadcom 0x14E4)"}
+      ]
+    },
+    "GLOBAL_INTR": {
+      "name": "RETIMER_CFG_GLOBAL_INTR",
+      "address": "0x0008",
+      "size": 4,
+      "description": "Global Interrupt and Mask Register",
+      "fields": [
+        {"name": "INTR_STS", "bit_offset": 0, "bit_width": 1, "description": "Global interrupt status"},
+        {"name": "EQ_PHASE_ERR_STS", "bit_offset": 1, "bit_width": 1, "description": "EQ phase error status"},
+        {"name": "PHY_PHASE_ERR_STS", "bit_offset": 2, "bit_width": 1, "description": "PHY phase error status"},
+        {"name": "RTMR_INT_ERR_STS", "bit_offset": 3, "bit_width": 1, "description": "Retimer internal error status"},
+        {"name": "INTR_EN", "bit_offset": 16, "bit_width": 1, "description": "Global interrupt enable"},
+        {"name": "EQ_PHASE_ERR_EN", "bit_offset": 17, "bit_width": 1, "description": "EQ phase error enable"},
+        {"name": "PHY_PHASE_ERR_EN", "bit_offset": 18, "bit_width": 1, "description": "PHY phase error enable"},
+        {"name": "RTMR_INT_ERR_EN", "bit_offset": 19, "bit_width": 1, "description": "Retimer internal error enable"}
+      ]
+    },
+    "XAGENT_INFO_0": {
+      "name": "XAGENT_XAGENT_INFO_0",
+      "address": "0x4000",
+      "size": 4,
+      "description": "XAGENT Info Register 0 - Product Info",
+      "fields": [
+        {"name": "FW_VERSION", "bit_offset": 0, "bit_width": 16, "description": "Firmware version"},
+        {"name": "PRODUCT_ID", "bit_offset": 16, "bit_width": 16, "description": "Product ID"}
+      ]
+    },
+    "RESET_CTRL": {
+      "name": "RETIMER_CFG_RESET_CTRL",
+      "address": "0x0010",
+      "size": 4,
+      "description": "Reset Control Register",
+      "fields": [
+        {"name": "HARD_RESET", "bit_offset": 0, "bit_width": 1, "description": "Hard reset"},
+        {"name": "SOFT_RESET", "bit_offset": 1, "bit_width": 1, "description": "Soft reset"},
+        {"name": "MAC_RESET", "bit_offset": 2, "bit_width": 1, "description": "MAC reset"},
+        {"name": "PERST", "bit_offset": 3, "bit_width": 1, "description": "PERST reset"},
+        {"name": "GLOBAL_SWRST", "bit_offset": 4, "bit_width": 1, "description": "Global software reset"}
+      ]
+    },
+    "TEMPERATURE": {
+      "name": "RETIMER_TEMPERATURE",
+      "address": "0x0100",
+      "size": 4,
+      "description": "Temperature Reading Register",
+      "fields": [
+        {"name": "TEMPERATURE", "bit_offset": 0, "bit_width": 16, "description": "Temperature in degrees C"},
+        {"name": "VALID", "bit_offset": 31, "bit_width": 1, "description": "Temperature reading valid"}
+      ]
+    },
+    "VOLTAGE_DVDD1": {
+      "name": "RETIMER_VOLTAGE_DVDD1",
+      "address": "0x0104",
+      "size": 4,
+      "description": "DVDD1 Voltage in millivolts",
+      "fields": []
+    },
+    "VOLTAGE_DVDD2": {
+      "name": "RETIMER_VOLTAGE_DVDD2",
+      "address": "0x0108",
+      "size": 4,
+      "description": "DVDD2 Voltage in millivolts",
+      "fields": []
+    },
+    "VOLTAGE_DVDD3": {
+      "name": "RETIMER_VOLTAGE_DVDD3",
+      "address": "0x010C",
+      "size": 4,
+      "description": "DVDD3 Voltage in millivolts",
+      "fields": []
+    },
+    "VOLTAGE_DVDD4": {
+      "name": "RETIMER_VOLTAGE_DVDD4",
+      "address": "0x0110",
+      "size": 4,
+      "description": "DVDD4 Voltage in millivolts",
+      "fields": []
+    },
+    "VOLTAGE_DVDD5": {
+      "name": "RETIMER_VOLTAGE_DVDD5",
+      "address": "0x0114",
+      "size": 4,
+      "description": "DVDD5 Voltage in millivolts",
+      "fields": []
+    },
+    "VOLTAGE_DVDD6": {
+      "name": "RETIMER_VOLTAGE_DVDD6",
+      "address": "0x0118",
+      "size": 4,
+      "description": "DVDD6 Voltage in millivolts",
+      "fields": []
+    },
+    "VOLTAGE_DVDDIO": {
+      "name": "RETIMER_VOLTAGE_DVDDIO",
+      "address": "0x011C",
+      "size": 4,
+      "description": "DVDDIO Voltage in millivolts",
+      "fields": []
+    },
+    "PPA_LTSSM_STATE": {
+      "name": "PPA_LTSSM_STATE",
+      "address": "0x8000",
+      "size": 4,
+      "description": "PPA LTSSM State",
+      "fields": [
+        {"name": "CURRENT_STATE", "bit_offset": 0, "bit_width": 8, "description": "Current LTSSM state"},
+        {"name": "LINK_SPEED", "bit_offset": 8, "bit_width": 4, "description": "Current link speed"},
+        {"name": "LINK_WIDTH", "bit_offset": 12, "bit_width": 5, "description": "Current link width"},
+        {"name": "FORWARDING_MODE", "bit_offset": 17, "bit_width": 1, "description": "Forwarding mode enabled"}
+      ]
+    },
+    "PPB_LTSSM_STATE": {
+      "name": "PPB_LTSSM_STATE",
+      "address": "0xC000",
+      "size": 4,
+      "description": "PPB LTSSM State",
+      "fields": [
+        {"name": "CURRENT_STATE", "bit_offset": 0, "bit_width": 8, "description": "Current LTSSM state"},
+        {"name": "LINK_SPEED", "bit_offset": 8, "bit_width": 4, "description": "Current link speed"},
+        {"name": "LINK_WIDTH", "bit_offset": 12, "bit_width": 5, "description": "Current link width"},
+        {"name": "FORWARDING_MODE", "bit_offset": 17, "bit_width": 1, "description": "Forwarding mode enabled"}
+      ]
+    }
+  },
+  "tx_coefficients": {
+    "gen3_base": "0x0200",
+    "gen4_base": "0x0280",
+    "gen5_base": "0x0300",
+    "gen6_base": "0x0380",
+    "lane_stride": "0x10"
+  },
+  "error_stats": {
+    "base": "0x0500",
+    "lane_stride": "0x20"
+  },
+  "smbus_commands": {
+    "WR32_2ADDR": "0x07",
+    "WR32_2ADDR_PEC": "0x87",
+    "WR32_4ADDR": "0x0F",
+    "WR32_4ADDR_PEC": "0x8F",
+    "RD32_2ADDR": "0x02",
+    "RD32_2ADDR_D": "0x01",
+    "RD32_2ADDR_PEC": "0x82",
+    "RD32_2ADDR_D_PEC": "0x81",
+    "RD32_4ADDR": "0x0A",
+    "RD32_4ADDR_D": "0x09",
+    "RD32_4ADDR_PEC": "0x8A",
+    "RD32_4ADDR_D_PEC": "0x89",
+    "WR_BLOCK": "0xA7",
+    "WR_BLOCK_PEC": "0xB7",
+    "PROCESS_BLOCK": "0xA9",
+    "PROCESS_BLOCK_PEC": "0xB9",
+    "GET_STATUS": "0xA5",
+    "GET_STATUS_PEC": "0xB5",
+    "RD_LONG_BLOCK": "0xC8",
+    "RD_LONG_BLOCK_PEC": "0xD8"
+  }
+}

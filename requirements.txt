@@ -1,0 +1,13 @@
+# Core dependencies
+pydantic>=2.0
+fastapi>=0.100
+uvicorn[standard]>=0.23
+pyserial>=3.5
+pyftdi>=0.54
+click>=8.1
+httpx>=0.24
+websockets>=11.0
+structlog>=23.1
+
+# Development dependencies (optional)
+# pip install -r requirements-dev.txt for these

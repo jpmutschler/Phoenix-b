@@ -1,0 +1,95 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "serialcables-phoenix"
+version = "0.1.0"
+description = "Python API for Broadcom Vantage PCIe Gen6 Retimer chips"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "Serial Cables", email = "support@serialcables.com" }
+]
+keywords = ["pcie", "retimer", "broadcom", "vantage", "gen6", "smbus", "i2c"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Hardware",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+dependencies = [
+    "pydantic>=2.0",
+    "fastapi>=0.100",
+    "uvicorn[standard]>=0.23",
+    "pyserial>=3.5",
+    "pyftdi>=0.54",
+    "click>=8.1",
+    "httpx>=0.24",
+    "websockets>=11.0",
+    "structlog>=23.1",
+    "nicegui>=2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-asyncio>=0.21",
+    "pytest-cov>=4.1",
+    "ruff>=0.1",
+    "mypy>=1.5",
+    "pre-commit>=3.4",
+]
+aardvark = [
+    "aardvark-py>=5.0",
+]
+
+[project.scripts]
+phoenix = "phoenix.cli.main:cli"
+
+[project.urls]
+Homepage = "https://github.com/serialcables/serialcables-phoenix"
+Documentation = "https://serialcables-phoenix.readthedocs.io"
+Repository = "https://github.com/serialcables/serialcables-phoenix"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/phoenix"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+addopts = "-v --cov=phoenix --cov-report=term-missing"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # Pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+]
+ignore = [
+    "E501",  # line too long (handled by formatter)
+]
+
+[tool.ruff.isort]
+known-first-party = ["phoenix"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_return_any = true
+warn_unused_ignores = true
