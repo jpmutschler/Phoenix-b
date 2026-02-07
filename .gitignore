@@ -82,3 +82,6 @@ VNT6_0_0_2/
 
 # Claude Code local settings
 .claude/
+
+# Temporary files
+temp/
