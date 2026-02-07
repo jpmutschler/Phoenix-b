@@ -19,6 +19,9 @@ def render_header(title: str, handle: Optional[int] = None) -> None:
     """
     with ui.row().classes("w-full items-center no-wrap q-gutter-md"):
         # Brand
+        ui.image("/static/logo.png").classes("").style(
+            "width: 32px; height: 32px; object-fit: contain;"
+        )
         ui.label("PHOENIX").classes("text-h6 text-bold").style(
             f"color: {COLORS.cyan}; letter-spacing: 0.15em;"
         )

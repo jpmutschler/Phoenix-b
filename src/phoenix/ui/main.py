@@ -7,9 +7,12 @@ via ui.run_with(app). REST API continues to work at /api/.
 
 import os
 import secrets
+from pathlib import Path
 
 from fastapi import FastAPI
 from nicegui import app as nicegui_app, ui
+
+_STATIC_DIR = Path(__file__).parent / "static"
 
 from phoenix.ui.pages.discovery import discovery_page
 from phoenix.ui.pages.dashboard import dashboard_page
@@ -32,6 +35,7 @@ def setup_ui(app: FastAPI) -> None:
     if not storage_secret:
         storage_secret = secrets.token_urlsafe(32)
 
+    nicegui_app.add_static_files("/static", str(_STATIC_DIR))
     _register_pages()
     ui.run_with(
         app,
